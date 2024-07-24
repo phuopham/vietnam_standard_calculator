@@ -19,6 +19,11 @@ export const FATHERLESSNESS = 24.4
 
 export const MOTHERLESSNESS = 4.5
 
+// % orphans in vietnam
+// https://childrenofvietnambf.org/projects/orphanages/
+
+export const ORPHANS = .01
+
 //https://www.worldometers.info/world-population/vietnam-population/
 // number was collected on Jul 2024
 export const POPULATION = 99_637_495

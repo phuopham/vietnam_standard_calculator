@@ -1,7 +1,7 @@
 import { AGE_DISTRIBUTION } from "@/constants/ageDistribution";
 import { HEIGHT_DISTRIBUTION } from "@/constants/heightDistribution";
 import { INCOME_DISTRIBUTION } from "@/constants/incomeDistribution";
-import { MARITAL_STATUS } from "@/constants/marriageDistribution"
+import { MARITAL_STATUS } from "@/constants/MaritalDistribution"
 
 export const matchedAge: (gender: "male" | "female", from: number | undefined, to: number | undefined) => number = (gender, from, to) => {
     if (!from && !to) return 1
