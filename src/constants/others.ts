@@ -18,3 +18,7 @@ export const FATHERLESSNESS = 24.4
 // under 4.5% children live with father only in vietnam (chatgpt)
 
 export const MOTHERLESSNESS = 4.5
+
+//https://www.worldometers.info/world-population/vietnam-population/
+// number was collected on Jul 2024
+export const POPULATION = 99_637_495
