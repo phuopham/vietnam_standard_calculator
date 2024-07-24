@@ -23,6 +23,7 @@ const AGE_DISTRIBUTION_RAW= [
         {"age_range": "95-99", "male": 0.7, "female": 0.5},
         {"age_range": "100+", "male": 0.5, "female": 0.3}
       ]
+
 export const AGE_DISTRIBUTION = [
   {"age_range": "0-4", under:5, "male": 4.5, "female": 4.3},
   {"age_range": "5-9", under:10,"male": 4.3, "female": 4.1},
