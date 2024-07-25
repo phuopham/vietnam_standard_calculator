@@ -3,7 +3,7 @@ import { HEIGHT_DISTRIBUTION } from "@/constants/heightDistribution";
 import { INCOME_DISTRIBUTION } from "@/constants/incomeDistribution";
 import { MARITAL_STATUS } from "@/constants/MaritalDistribution"
 
-export const matchedAge: (gender: "male" | "female", from: number | undefined, to: number | undefined) => number = (gender, from, to) => {
+export const matchedAge: (gender: "male" | "female", from: number, to: number) => number = (gender, from, to) => {
     if (!from && !to) return 1
     if (!from) from = 0;
     if (!to) to = 130;
@@ -11,15 +11,15 @@ export const matchedAge: (gender: "male" | "female", from: number | undefined, t
     return result
 }
 //TODO: need to recalculate because male and femail distribution
-export const matchedHeight: (gender: "male" | "female", from: number | undefined, to: number | undefined) => number = (gender, from, to) => {
+export const matchedHeight: (gender: "male" | "female", from: number, to: number) => number = (gender, from, to) => {
     if (!from && !to) return 1
     if (!from) from = 100;
     if (!to) to = 210;
-    const result: number = HEIGHT_DISTRIBUTION.filter((item) => item.height <= to && item.height >= from).reduce((total, item) => total + item[gender], 0)
+    const result: number = HEIGHT_DISTRIBUTION.filter((item) => item.height <= to && item.height > from).reduce((total, item) => total + item[gender], 0)
     return result
 }
 
-export const matchedIncome: (from: number | undefined, to: number | undefined) => number = (from, to) => {
+export const matchedIncome: (from: number, to: number) => number = (from, to) => {
     if (!from && !to) return 1
     if (!from) from = 0;
     if (!to) to = 200;

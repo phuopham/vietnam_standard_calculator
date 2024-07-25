@@ -1,17 +1,12 @@
-import { useState } from "react"
 import { Slider2 } from "./ui/slider2way"
 import { cn } from "@/lib/utils"
 import { matchedIncome } from "@/utils/standardpercentage"
 
-export const IncomeForm = () => {
-    const [localValues, setLocalValues] = useState([0, 200])
-    const handleValueChange = (newValues: number[]) => {
-        setLocalValues(newValues)
-    }
+export const IncomeForm = ({ income, onValueChange }: { income: number[], onValueChange: (val: number[]) => void }) => {
     return (
         <>
             <div>
-                Thu nhập: Từ {localValues[0]} tới {localValues[1]} - {matchedIncome(localValues[0], localValues[1])}% dân số đô thị
+                Thu nhập: Từ {income[0]} tới {income[1]} - {matchedIncome(income[0], income[1])}% dân số đô thị
             </div>
             <Slider2
                 defaultValue={[0, 200]}
@@ -19,7 +14,7 @@ export const IncomeForm = () => {
                 max={120}
                 min={0}
                 step={5}
-                onValueChange={handleValueChange}
+                onValueChange={(val) => onValueChange(val)}
                 className={cn("w-full")}
             />
 

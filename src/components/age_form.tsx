@@ -1,25 +1,21 @@
-import { useState } from "react"
 import { Slider2 } from "./ui/slider2way"
 import { cn } from "@/lib/utils"
 import { matchedAge } from "@/utils/standardpercentage"
+import { GenderType } from "./pages/main"
 
-export const AgeForm = () => {
-  const [localValues, setLocalValues] = useState([0, 120])
-  const handleValueChange = (newValues: number[]) => {
-    setLocalValues(newValues)
-  }
+export const AgeForm = ({ gender, ages, onValueChange }: { gender?: GenderType, ages: number[], onValueChange: (newValue: number[]) => void }) => {
   return (
     <>
       <div>
-        Tuổi tác: Từ {localValues[0]} tới {localValues[1]} - {matchedAge("male", localValues[0], localValues[1]).toFixed(2)}% dân số
+        Tuổi tác: Từ {ages[0]} tới {ages[1]}{gender && " - " + matchedAge(gender, ages[0], ages[1]).toFixed(2) + "% dân số"}
       </div>
       <Slider2
-        defaultValue={[0, 120]}
+        defaultValue={ages}
         minStepsBetweenThumbs={1}
         max={120}
         min={0}
         step={5}
-        onValueChange={handleValueChange}
+        onValueChange={(newValues: number[]) => onValueChange(newValues)}
         className={cn("w-full")}
       />
 
