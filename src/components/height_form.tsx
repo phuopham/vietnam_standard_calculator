@@ -8,7 +8,7 @@ export const HeightForm = ({ gender, height, onValueChange }: { gender: GenderTy
     return (
         <>
             <div>
-                Chiều cao: Từ {height[0]} cm tới {height[1]} cm - {matchedHeight(gender, height[0], height[1]).toFixed(2)}% {gender == "male" ? "nam giới" : "nữ giới"} đạt tiêu chuẩn
+                Chiều cao: Từ {height[0]} cm tới {height[1]} cm - {matchedHeight(gender, height).toFixed(2)}% {gender == "male" ? "nam giới" : "nữ giới"} đạt tiêu chuẩn
             </div>
             <Slider2
                 defaultValue={height}

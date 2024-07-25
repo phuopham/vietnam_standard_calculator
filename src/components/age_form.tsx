@@ -7,7 +7,7 @@ export const AgeForm = ({ gender, ages, onValueChange }: { gender?: GenderType, 
   return (
     <>
       <div>
-        Tuổi tác: Từ {ages[0]} tới {ages[1]}{gender && " - " + matchedAge(gender, ages[0], ages[1]).toFixed(2) + "% dân số"}
+        Tuổi tác: Từ {ages[0]} tới {ages[1]}{gender && " - " + matchedAge(gender, ages).toFixed(2) + "% dân số"}
       </div>
       <Slider2
         defaultValue={ages}

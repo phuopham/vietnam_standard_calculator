@@ -6,7 +6,7 @@ export const IncomeForm = ({ income, onValueChange }: { income: number[], onValu
     return (
         <>
             <div>
-                Thu nhập: Từ {income[0]} tới {income[1]} - {matchedIncome(income[0], income[1])}% dân số đô thị
+                Thu nhập: Từ {income[0]} tới {income[1]} - {matchedIncome(income)}% dân số đô thị
             </div>
             <Slider2
                 defaultValue={[0, 200]}
