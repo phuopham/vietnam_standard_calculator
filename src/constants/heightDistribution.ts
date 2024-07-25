@@ -28,16 +28,16 @@ const HEIGHT_DISTRIBUTION_RAW = {
 //base on normal distribution and my assumption
 //TODO: find trusted source
 export const HEIGHT_DISTRIBUTION = [
-  { height: 140, male: 0.2, female: 8 },
-  { height: 150, male: 0.3, female: 10 },
-  { height: 155, male: 0.7, female: 30 },
-  { height: 160, male: 5, female: 34 },
+  { height: 140, male: 0.2, female: 5 },
+  { height: 150, male: 0.3, female: 8 },
+  { height: 155, male: 0.7, female: 21 },
+  { height: 160, male: 5, female: 32 },
   { height: 165, male: 19, female: 20 },
-  { height: 170, male: 34, female: 5 },
+  { height: 170, male: 34, female: 7 },
   { height: 175, male: 29, female: 2 },
   { height: 180, male: 8, female: 0.5 },
   { height: 185, male: 2, female: 0.1 },
   { height: 190, male: 0.3, female: 0.1 },
-  { height: 195, male: 0.1, female: 0 },
-  { height: 200, male: 0.1, female: 0 }
+  { height: 195, male: 0.1, female: 0.01 },
+  { height: 200, male: 0.1, female: 0.01 }
 ] as const
