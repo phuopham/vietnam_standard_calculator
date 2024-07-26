@@ -16,37 +16,51 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
-const DataLazyImport = createFileRoute('/data')()
-const IndexLazyImport = createFileRoute('/')()
+const VietnamstandardcalculatorIndexLazyImport = createFileRoute(
+  '/vietnam_standard_calculator/',
+)()
+const VietnamstandardcalculatorDataLazyImport = createFileRoute(
+  '/vietnam_standard_calculator/data',
+)()
 
 // Create/Update Routes
 
-const DataLazyRoute = DataLazyImport.update({
-  path: '/data',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/data.lazy').then((d) => d.Route))
+const VietnamstandardcalculatorIndexLazyRoute =
+  VietnamstandardcalculatorIndexLazyImport.update({
+    path: '/vietnam_standard_calculator/',
+    getParentRoute: () => rootRoute,
+  } as any).lazy(() =>
+    import('./routes/vietnam_standard_calculator/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 
-const IndexLazyRoute = IndexLazyImport.update({
-  path: '/',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+const VietnamstandardcalculatorDataLazyRoute =
+  VietnamstandardcalculatorDataLazyImport.update({
+    path: '/vietnam_standard_calculator/data',
+    getParentRoute: () => rootRoute,
+  } as any).lazy(() =>
+    import('./routes/vietnam_standard_calculator/data.lazy').then(
+      (d) => d.Route,
+    ),
+  )
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexLazyImport
+    '/vietnam_standard_calculator/data': {
+      id: '/vietnam_standard_calculator/data'
+      path: '/vietnam_standard_calculator/data'
+      fullPath: '/vietnam_standard_calculator/data'
+      preLoaderRoute: typeof VietnamstandardcalculatorDataLazyImport
       parentRoute: typeof rootRoute
     }
-    '/data': {
-      id: '/data'
-      path: '/data'
-      fullPath: '/data'
-      preLoaderRoute: typeof DataLazyImport
+    '/vietnam_standard_calculator/': {
+      id: '/vietnam_standard_calculator/'
+      path: '/vietnam_standard_calculator'
+      fullPath: '/vietnam_standard_calculator'
+      preLoaderRoute: typeof VietnamstandardcalculatorIndexLazyImport
       parentRoute: typeof rootRoute
     }
   }
@@ -55,8 +69,8 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren({
-  IndexLazyRoute,
-  DataLazyRoute,
+  VietnamstandardcalculatorDataLazyRoute,
+  VietnamstandardcalculatorIndexLazyRoute,
 })
 
 /* prettier-ignore-end */
@@ -67,15 +81,15 @@ export const routeTree = rootRoute.addChildren({
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/data"
+        "/vietnam_standard_calculator/data",
+        "/vietnam_standard_calculator/"
       ]
     },
-    "/": {
-      "filePath": "index.lazy.tsx"
+    "/vietnam_standard_calculator/data": {
+      "filePath": "vietnam_standard_calculator/data.lazy.tsx"
     },
-    "/data": {
-      "filePath": "data.lazy.tsx"
+    "/vietnam_standard_calculator/": {
+      "filePath": "vietnam_standard_calculator/index.lazy.tsx"
     }
   }
 }
