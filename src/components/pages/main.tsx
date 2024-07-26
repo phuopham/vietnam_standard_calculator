@@ -26,8 +26,8 @@ export const MainPage = () => {
     const [others, setOthers] = useState<OthersType>({ currentlyMarried: false, single: true, widowed: false, divorced: false, separated: false, disability: false, orphans: false })
     const percentage = finalResult(gender, ages, height, income, others)
     return (
-        <div className="p-2 md:grid md:grid-cols-3">
-            <div className='space-y-5'>
+        <div className=" md:grid md:grid-cols-3">
+            <div className='p-2 space-y-5 border-e-2'>
                 {/* main content */}
                 <GenderForm gender={gender} setGender={(val: GenderType) => setGender(val)} />
                 <AgeForm gender={gender} ages={ages} onValueChange={(val) => setAges(val)} />
