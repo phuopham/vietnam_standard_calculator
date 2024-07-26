@@ -5,6 +5,7 @@ export const DataPage = () => {
                 Hi there, thank you for visit the page.
                 Any contribution are welcome. If you have any issue, please let me know. I'm happy to answer any inquiry. You can find contact point or resource at top right corner
             </div>
+
             <div>
                 Data for the calculator was collected from these source. Percentage were roughly estimated.
             </div>
