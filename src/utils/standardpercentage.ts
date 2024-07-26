@@ -1,28 +1,45 @@
-import { GenderType } from "@/components/pages/main";
+import { GenderType, OthersType } from "@/components/pages/main";
 import { AGE_DISTRIBUTION } from "@/constants/ageDistribution";
 import { HEIGHT_DISTRIBUTION } from "@/constants/heightDistribution";
-import { INCOME_DISTRIBUTION } from "@/constants/incomeDistribution";
+import { INCOME_DISTRIBUTION, URBAN_PERCENTAGE } from "@/constants/incomeDistribution";
 import { MARITAL_STATUS } from "@/constants/marriageDistribution";
-import { POPULATION } from "@/constants/others";
+import { DISABILITY, ORPHANS } from "@/constants/others";
 
+type MaritalDataType = {
+    currentlyMarried: number,
+    single: number,
+    widowed: number,
+    divorced: number,
+    separated: number
+}
 
-export const matchedAge: (gender: "male" | "female", ages: number[]) => number = (gender, ages) => {
+export const matchedAge: (gender: GenderType, ages: number[]) => number = (gender, ages) => {
     const result: number = AGE_DISTRIBUTION.filter((value) => value.under <= ages[1] && value.under > ages[0]).reduce((total, item) => total + item[gender], 0)
     return result
 }
-//TODO: need to recalculate because male and femail distribution
-export const matchedHeight: (gender: "male" | "female", height: number[]) => number = (gender, height) => {
+
+export const matchedHeight: (gender: GenderType, height: number[]) => number = (gender, height) => {
     const result: number = HEIGHT_DISTRIBUTION.filter((item) => item.height <= height[1] && item.height > height[0]).reduce((total, item) => total + item[gender], 0)
     return result
 }
 
 export const matchedIncome: (income: number[]) => number = (income) => {
-    const result: number = INCOME_DISTRIBUTION.filter((item) => item.urban >= income[0] && item.urban <= income[1]).reduce((total, item) => total + item.urban, 0)
+    const result: number = INCOME_DISTRIBUTION.filter((item) => item.income > income[0] && item.income <= income[1]).reduce((total, item) => total + item.urban * URBAN_PERCENTAGE + item.rural * (1 - URBAN_PERCENTAGE), 0)
     return result
 }
 
-export const finalResult: (matchedIncome: number, matchedHeight: number, matchedAge: number, maritalStatus?: keyof typeof MARITAL_STATUS) => number = (matchedIncome, matchedHeight, matchedAge, maritalStatus) => {
-    // const maritalPercentage = MARITAL_STATUS[maritalStatus]
-    //TODO: disability, orphan, marital status....
-    return matchedAge / 100 * matchedHeight * 2 / 100 * matchedIncome / 100
+export const matchedMaritalStatus = (status: OthersType, maritalStatus: MaritalDataType) => {
+    let total = 0
+    for (const key in status) {
+        if (status[key as keyof typeof status])
+            if (maritalStatus[key as keyof typeof maritalStatus])
+                total += maritalStatus[key as keyof typeof maritalStatus]
+    }
+    return total;
+}
+
+export const finalResult: (gender: GenderType, ages: number[], height: number[], income: number[], others: OthersType) => number = (gender, ages, height, income, others) => {
+    const result = matchedAge(gender, ages) / 100 * matchedHeight(gender, height) / 100 * matchedIncome(income) / 100 * matchedMaritalStatus(others, MARITAL_STATUS) / 100 * (others.disability ? DISABILITY : 1) * (others.orphans ? ORPHANS : 1)
+
+    return result
 }

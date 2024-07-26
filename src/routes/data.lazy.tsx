@@ -1,9 +1,6 @@
+import { DataPage } from '@/components/pages/data'
 import { createLazyFileRoute } from '@tanstack/react-router'
 
 export const Route = createLazyFileRoute('/data')({
-  component: Data,
+  component: DataPage,
 })
-
-function Data() {
-  return <div className="p-2">Hello from Data!</div>
-}
