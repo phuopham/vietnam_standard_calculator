@@ -22,12 +22,12 @@ const IndexLazyImport = createFileRoute('/')()
 // Create/Update Routes
 
 const DataLazyRoute = DataLazyImport.update({
-  path: '/vietnam_standard_calculator/data',
+  path: '/data',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/data.lazy').then((d) => d.Route))
 
 const IndexLazyRoute = IndexLazyImport.update({
-  path: '/vietnam_standard_calculator/',
+  path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 
