@@ -5,10 +5,10 @@ export const Route = createRootRoute({
     <>
       <header className='container'>
         <div className="p-2 flex gap-2">
-          <Link to="/" className=" text-emerald-600 [&.active]:font-bold">
+          <Link to="/vietnam_standard_calculator" className=" text-emerald-600 [&.active]:font-bold">
             Vietnam standard calculator
           </Link>{' '}
-          <Link to="/data" className="[&.active]:font-bold flex-1">
+          <Link to="/vietnam_standard_calculator/data" className="[&.active]:font-bold flex-1">
             Data
           </Link>
           <a className='font-semibold' href="https://github.com/phuopham/vietnam_standard_calculator">Github</a>
