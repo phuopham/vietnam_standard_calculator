@@ -35,7 +35,7 @@ export const MainPage = () => {
                 <IncomeForm income={income} onValueChange={(val) => setIncome(val)} />
                 <OtherForm data={others} onValueChange={(val) => setOthers(val)} />
             </div>
-            <Result percentage={percentage} />
+            <Result percentage={percentage} gender={gender} />
         </div>
     )
 }
