@@ -3,15 +3,14 @@ import { POPULATION } from "@/constants/others"
 import { GenderType } from "./pages/main"
 import Male from '@/assets/male.svg?react'
 import Female from '@/assets/female.svg?react'
-import { cn } from "@/lib/utils"
 
 export const Model = ({ id, gender, percentage }: { id: number, gender: GenderType, percentage: number }) => {
-    console.log(percentage)
+    const matched = (percentage * 1000) > id
     return gender == 'male' ?
         (
-            <Male className={cn('h-6 w-3', (percentage * 1000) < id ? "" : "bg-emerald-500")} key={id} />
+            <Male className='h-6 w-3' key={id} style={{ fill: matched ? '#059669' : '#bbb' }} />
         ) : (
-            <Female className={cn('h-6 w-3', (percentage * 1000) < id ? "" : "bg-emerald-500")} key={id} />
+            <Female className='h-6 w-3' key={id} style={{ fill: matched ? '#059669' : '#bbb' }} />
         )
 }
 export const Result = ({ gender, percentage }: { gender: GenderType, percentage: number }) => {
@@ -22,7 +21,7 @@ export const Result = ({ gender, percentage }: { gender: GenderType, percentage:
                 {percentage}% dân số phù hợp với mong muốn của bạn. Trung bình, Một trong số {Math.round(1 / percentage).toLocaleString('vi')} người xung quanh bạn đạt tiêu chuẩn.
                 Năm 2024, dân số nước ta là {POPULATION.toLocaleString('vi')}. Bạn có thể tìm được {Math.round((POPULATION * percentage)).toLocaleString('vi')} đối tượng
             </div>
-            <div className="grid grid-cols-50">
+            <div className=" hidden sm:grid sm:grid-cols-50">
                 {Array.from({ length: 1000 }, (_, i) => {
                     return (i)
                 }).map((i) =>
