@@ -16,7 +16,7 @@ export const Model = ({ id, gender, percentage }: { id: number, gender: GenderTy
 export const Result = ({ gender, percentage }: { gender: GenderType, percentage: number }) => {
     return (
         <div className='col-span-2 flex flex-col items-center justify-center px-5 '>
-            Kết quả
+            <h2 className="font-semibold">Kết quả</h2>
             <div className='border rounded-xl bg-slate-100 p-5'>
                 {percentage}% dân số phù hợp với mong muốn của bạn. Trung bình, Một trong số {Math.round(1 / percentage).toLocaleString('vi')} người xung quanh bạn đạt đủ tiêu chí đề ra.
                 Năm 2024, dân số nước ta là {POPULATION.toLocaleString('vi')}. Bạn có thể tìm được {Math.round((POPULATION * percentage)).toLocaleString('vi')} đối tượng

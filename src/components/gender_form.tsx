@@ -5,7 +5,7 @@ import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 export const GenderForm = ({ gender, setGender }: { gender: GenderType, setGender: (newValue: GenderType) => void }) => {
     return (
         <>
-            <div>Bạn đang muốn tìm kiếm </div>
+            <h2>Bạn đang muốn tìm kiếm:</h2>
             <RadioGroup defaultValue={gender}>
                 <div className="flex items-center space-x-2">
                     <RadioGroupItem value="male" id="male" onClick={() => setGender('male')} />

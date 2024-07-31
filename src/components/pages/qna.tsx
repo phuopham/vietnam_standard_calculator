@@ -16,16 +16,18 @@ export const QnAPage = () => {
                     <p className='px-3'>Không. Công cụ này là miễn phí cho mọi người</p>
                     <h3 className='font-bold pt-3 text-emerald-600' id="question5">Công cụ này có lưu trữ thông tin cá nhân của tôi không?</h3>
                     <p className='px-3'>Không. Tôi cam kết không thu thập, lưu trữ dữ liệu cá nhân cũng như lịch sử tìm kiếm của bạn.</p>
+                    <h3 className='font-bold pt-3 text-emerald-600' id="question6">Có những cách nào để hỗ trợ tác giả?</h3>
+                    <p className='px-3'>Bạn có thể contribute cho dự án mở này trên github hoặc email trực tiếp cho tác giả</p>
                 </section>
-                <section>
+                {/* <section>
                     <ul>
-                        <li className=' list-disc'>Vietnam standard calculator là gì?</li>
-                        <li className=' list-disc'>Công cụ này có chính xác không?</li>
-                        <li className=' list-disc'>Thông tin từ công cụ này có từ đâu?</li>
-                        <li className=' list-disc'>Tôi có cần đăng kí để sử dụng công cụ này?</li>
-                        <li className=' list-disc'>Công cụ này có lưu trữ thông tin cá nhân của tôi không?</li>
+                        <li className=' list-disc'><a href="#question">Vietnam standard calculator là gì?</a></li>
+                        <li className=' list-disc'><a href="#question">Công cụ này có chính xác không?</a></li>
+                        <li className=' list-disc'><a href="#question">Thông tin từ công cụ này có từ đâu?</a></li>
+                        <li className=' list-disc'><a href="#question">Tôi có cần đăng kí để sử dụng công cụ này?</a></li>
+                        <li className=' list-disc'><a href="#question">Công cụ này có lưu trữ thông tin cá nhân của tôi không?</a></li>
                     </ul>
-                </section>
+                </section> */}
             </div>
         </body >
 
