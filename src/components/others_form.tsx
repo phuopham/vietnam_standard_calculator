@@ -12,7 +12,7 @@ export const OtherForm = ({ data, onValueChange }: { data: OthersType, onValueCh
                 Độc thân {data.single && <X className="m-1 w-4 h-4" />}
             </Toggle>
             <Toggle id="widowed" defaultPressed={data.widowed} onClick={() => onValueChange({ ...data, widowed: !data.widowed })} >
-                Góa vợ/chồng {data.currentlyMarried && <X className="m-1 w-4 h-4" />}
+                Góa vợ/chồng {data.widowed && <X className="m-1 w-4 h-4" />}
             </Toggle>
             <Toggle id="divorced" defaultPressed={data.divorced} onClick={() => onValueChange({ ...data, divorced: !data.divorced })}>
                 Đã bỏ vợ/chồng {data.divorced && <X className="m-1 w-4 h-4" />}

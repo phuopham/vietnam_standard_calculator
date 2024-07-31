@@ -27,7 +27,7 @@ export const MainPage = () => {
     const percentage = finalResult(gender, ages, height, income, others)
     return (
         <div className=" md:grid md:grid-cols-3">
-            <div className='p-2 space-y-5 border-e-2'>
+            <div className='mt-3 p-3 space-y-5 rounded-xl border '>
                 {/* main content */}
                 <GenderForm gender={gender} setGender={(val: GenderType) => setGender(val)} />
                 <AgeForm gender={gender} ages={ages} onValueChange={(val) => setAges(val)} />

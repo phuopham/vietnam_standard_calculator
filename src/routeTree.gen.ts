@@ -19,6 +19,9 @@ import { Route as rootRoute } from './routes/__root'
 const VietnamstandardcalculatorIndexLazyImport = createFileRoute(
   '/vietnam_standard_calculator/',
 )()
+const VietnamstandardcalculatorQnaLazyImport = createFileRoute(
+  '/vietnam_standard_calculator/qna',
+)()
 const VietnamstandardcalculatorDataLazyImport = createFileRoute(
   '/vietnam_standard_calculator/data',
 )()
@@ -31,6 +34,16 @@ const VietnamstandardcalculatorIndexLazyRoute =
     getParentRoute: () => rootRoute,
   } as any).lazy(() =>
     import('./routes/vietnam_standard_calculator/index.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+
+const VietnamstandardcalculatorQnaLazyRoute =
+  VietnamstandardcalculatorQnaLazyImport.update({
+    path: '/vietnam_standard_calculator/qna',
+    getParentRoute: () => rootRoute,
+  } as any).lazy(() =>
+    import('./routes/vietnam_standard_calculator/qna.lazy').then(
       (d) => d.Route,
     ),
   )
@@ -56,6 +69,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VietnamstandardcalculatorDataLazyImport
       parentRoute: typeof rootRoute
     }
+    '/vietnam_standard_calculator/qna': {
+      id: '/vietnam_standard_calculator/qna'
+      path: '/vietnam_standard_calculator/qna'
+      fullPath: '/vietnam_standard_calculator/qna'
+      preLoaderRoute: typeof VietnamstandardcalculatorQnaLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/vietnam_standard_calculator/': {
       id: '/vietnam_standard_calculator/'
       path: '/vietnam_standard_calculator'
@@ -70,6 +90,7 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren({
   VietnamstandardcalculatorDataLazyRoute,
+  VietnamstandardcalculatorQnaLazyRoute,
   VietnamstandardcalculatorIndexLazyRoute,
 })
 
@@ -82,11 +103,15 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "__root.tsx",
       "children": [
         "/vietnam_standard_calculator/data",
+        "/vietnam_standard_calculator/qna",
         "/vietnam_standard_calculator/"
       ]
     },
     "/vietnam_standard_calculator/data": {
       "filePath": "vietnam_standard_calculator/data.lazy.tsx"
+    },
+    "/vietnam_standard_calculator/qna": {
+      "filePath": "vietnam_standard_calculator/qna.lazy.tsx"
     },
     "/vietnam_standard_calculator/": {
       "filePath": "vietnam_standard_calculator/index.lazy.tsx"
