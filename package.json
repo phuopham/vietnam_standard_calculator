@@ -8,8 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "deploy_gh": "npm run build && gh-pages -d dist",
-    "deploy_cf": "npm run build && cf-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.1",
