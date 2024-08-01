@@ -12,8 +12,8 @@ export const AgeForm = ({ gender, ages, onValueChange }: { gender?: GenderType, 
       <Slider2
         defaultValue={ages}
         minStepsBetweenThumbs={1}
-        max={120}
-        min={0}
+        max={90}
+        min={15}
         step={5}
         onValueChange={(newValues: number[]) => onValueChange(newValues)}
         className={cn("w-full")}
