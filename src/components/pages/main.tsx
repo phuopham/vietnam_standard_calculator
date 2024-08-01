@@ -39,7 +39,7 @@ export const MainPage = () => {
                 </div>
                 <Result percentage={percentage} gender={gender} />
             </div>
-            <p className=' text-sm italic text-slate-600'>*Disclaimer: Các thông tin này không chính xác tuyệt đối. Bạn nên cân nhắc kĩ khi sử dụng những thông tin trên. <Link to='/vietnam_standard_calculator/data'>(xem thêm)</Link></p>
+            <p className=' text-sm font-light italic text-slate-600'>*Disclaimer: Các thông tin này không chính xác tuyệt đối. Bạn nên cân nhắc kĩ khi sử dụng những thông tin trên. <Link className='underline' to='/vietnam_standard_calculator/data'>(xem thêm)</Link></p>
         </>
     )
 }
