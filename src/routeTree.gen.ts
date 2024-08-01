@@ -16,71 +16,50 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
-const VietnamstandardcalculatorIndexLazyImport = createFileRoute(
-  '/vietnam_standard_calculator/',
-)()
-const VietnamstandardcalculatorQnaLazyImport = createFileRoute(
-  '/vietnam_standard_calculator/qna',
-)()
-const VietnamstandardcalculatorDataLazyImport = createFileRoute(
-  '/vietnam_standard_calculator/data',
-)()
+const QnaLazyImport = createFileRoute('/qna')()
+const DataLazyImport = createFileRoute('/data')()
+const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
 
-const VietnamstandardcalculatorIndexLazyRoute =
-  VietnamstandardcalculatorIndexLazyImport.update({
-    path: '/vietnam_standard_calculator/',
-    getParentRoute: () => rootRoute,
-  } as any).lazy(() =>
-    import('./routes/vietnam_standard_calculator/index.lazy').then(
-      (d) => d.Route,
-    ),
-  )
+const QnaLazyRoute = QnaLazyImport.update({
+  path: '/qna',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/qna.lazy').then((d) => d.Route))
 
-const VietnamstandardcalculatorQnaLazyRoute =
-  VietnamstandardcalculatorQnaLazyImport.update({
-    path: '/vietnam_standard_calculator/qna',
-    getParentRoute: () => rootRoute,
-  } as any).lazy(() =>
-    import('./routes/vietnam_standard_calculator/qna.lazy').then(
-      (d) => d.Route,
-    ),
-  )
+const DataLazyRoute = DataLazyImport.update({
+  path: '/data',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/data.lazy').then((d) => d.Route))
 
-const VietnamstandardcalculatorDataLazyRoute =
-  VietnamstandardcalculatorDataLazyImport.update({
-    path: '/vietnam_standard_calculator/data',
-    getParentRoute: () => rootRoute,
-  } as any).lazy(() =>
-    import('./routes/vietnam_standard_calculator/data.lazy').then(
-      (d) => d.Route,
-    ),
-  )
+const IndexLazyRoute = IndexLazyImport.update({
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/vietnam_standard_calculator/data': {
-      id: '/vietnam_standard_calculator/data'
-      path: '/vietnam_standard_calculator/data'
-      fullPath: '/vietnam_standard_calculator/data'
-      preLoaderRoute: typeof VietnamstandardcalculatorDataLazyImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/vietnam_standard_calculator/qna': {
-      id: '/vietnam_standard_calculator/qna'
-      path: '/vietnam_standard_calculator/qna'
-      fullPath: '/vietnam_standard_calculator/qna'
-      preLoaderRoute: typeof VietnamstandardcalculatorQnaLazyImport
+    '/data': {
+      id: '/data'
+      path: '/data'
+      fullPath: '/data'
+      preLoaderRoute: typeof DataLazyImport
       parentRoute: typeof rootRoute
     }
-    '/vietnam_standard_calculator/': {
-      id: '/vietnam_standard_calculator/'
-      path: '/vietnam_standard_calculator'
-      fullPath: '/vietnam_standard_calculator'
-      preLoaderRoute: typeof VietnamstandardcalculatorIndexLazyImport
+    '/qna': {
+      id: '/qna'
+      path: '/qna'
+      fullPath: '/qna'
+      preLoaderRoute: typeof QnaLazyImport
       parentRoute: typeof rootRoute
     }
   }
@@ -89,9 +68,9 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren({
-  VietnamstandardcalculatorDataLazyRoute,
-  VietnamstandardcalculatorQnaLazyRoute,
-  VietnamstandardcalculatorIndexLazyRoute,
+  IndexLazyRoute,
+  DataLazyRoute,
+  QnaLazyRoute,
 })
 
 /* prettier-ignore-end */
@@ -102,19 +81,19 @@ export const routeTree = rootRoute.addChildren({
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/vietnam_standard_calculator/data",
-        "/vietnam_standard_calculator/qna",
-        "/vietnam_standard_calculator/"
+        "/",
+        "/data",
+        "/qna"
       ]
     },
-    "/vietnam_standard_calculator/data": {
-      "filePath": "vietnam_standard_calculator/data.lazy.tsx"
+    "/": {
+      "filePath": "index.lazy.tsx"
     },
-    "/vietnam_standard_calculator/qna": {
-      "filePath": "vietnam_standard_calculator/qna.lazy.tsx"
+    "/data": {
+      "filePath": "data.lazy.tsx"
     },
-    "/vietnam_standard_calculator/": {
-      "filePath": "vietnam_standard_calculator/index.lazy.tsx"
+    "/qna": {
+      "filePath": "qna.lazy.tsx"
     }
   }
 }

@@ -11,7 +11,7 @@ export const QnAPage = () => {
                     <h3 className='font-bold pt-3 text-emerald-600' id="question2">Công cụ này có chính xác không?</h3>
                     <p className='px-3'>Công cụ này không chính xác 100% nhưng đạt độ chính xác cao do sử dụng phương pháp tính xác suất thống kê và dữ liệu có thể tin cậy từ nhiều nguồn khác nhau.</p>
                     <h3 className='font-bold pt-3 text-emerald-600' id="question3">Thông tin từ công cụ này có từ đâu?</h3>
-                    <p className='px-3'>Mọi dữ liệu dùng cho công cụ này được tôi tổng hợp <Link className='underline' to='/vietnam_standard_calculator/data'>tại đây</Link></p>
+                    <p className='px-3'>Mọi dữ liệu dùng cho công cụ này được tôi tổng hợp <Link className='underline' to='/data'>tại đây</Link></p>
                     <h3 className='font-bold pt-3 text-emerald-600' id="question4">Tôi có cần đăng kí để sử dụng công cụ này?</h3>
                     <p className='px-3'>Không. Công cụ này là miễn phí cho mọi người</p>
                     <h3 className='font-bold pt-3 text-emerald-600' id="question5">Công cụ này có lưu trữ thông tin cá nhân của tôi không?</h3>
