@@ -43,6 +43,12 @@ export const DataPage = () => {
                     Vietnam population: https://www.worldometers.info/world-population/vietnam-population/
                     - number was collected on Jul 2024
                 </li>
+                <li>50% of men and 5% of woman smoking (2013) - https://en.wikipedia.org/wiki/Smoking_in_Vietnam#:~:text=Smoking%20in%20Vietnam%20is%20a%20major%20health%20concern%2C,Vietnam%20were%20regularly%20exposed%20to%20tobacco%20smoke.%20</li>
+                <li>45.3% of men smoking (2018) - https://www.who.int/vietnam/news/detail/27-05-2018-smoking-causes-40-000-deaths-in-viet-nam-each-year
+                </li>
+                <li>2015 GATS of Vietnam gives the overall smoking incidence at 22.5% with 45.3% males smoking and 1.1% females smoking - https://timonitor.seatca.org/vietnam/</li>
+                <li>2021, up to 64% of men and 10% of women have had alcohol in the past 30 days - https://en.vietnamplus.vn/alcohol-consumption-increasing-at-alarming-rate-post232387.vnp</li>
+                <li>// 2015: Nearly three-quarters of males (77%) and one-quarter of females (23%) were current alcohol drinkers - https://www.iza.org/publications/dp/14824</li>
             </ul>
         </>)
 }
