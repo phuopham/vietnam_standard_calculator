@@ -16,7 +16,9 @@ export type OthersType = {
     divorced: boolean,
     separated: boolean,
     disability?: boolean,
-    orphans?: boolean
+    orphans?: boolean,
+    antiAlcoholic?: boolean
+    nonSmoking?: boolean
 }
 
 export const MainPage = () => {

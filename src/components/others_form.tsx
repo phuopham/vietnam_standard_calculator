@@ -26,6 +26,12 @@ export const OtherForm = ({ data, onValueChange }: { data: OthersType, onValueCh
             <Toggle id="orphans" defaultPressed={data.orphans} onClick={() => onValueChange({ ...data, orphans: !data.orphans })}>
                 Mồ côi {data.orphans && <X className="m-1 w-4 h-4" />}
             </Toggle>
+            <Toggle id="antiAlcoholic" defaultPressed={data.antiAlcoholic} onClick={() => onValueChange({ ...data, antiAlcoholic: !data.antiAlcoholic })}>
+                Không rượu bia {data.antiAlcoholic && <X className="m-1 w-4 h-4" />}
+            </Toggle>
+            <Toggle id="nonSmoking" defaultPressed={data.nonSmoking} onClick={() => onValueChange({ ...data, nonSmoking: !data.nonSmoking })}>
+                Không hút thuốc {data.nonSmoking && <X className="m-1 w-4 h-4" />}
+            </Toggle>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { AGE_DISTRIBUTION } from "@/constants/ageDistribution";
 import { HEIGHT_DISTRIBUTION } from "@/constants/heightDistribution";
 import { INCOME_DISTRIBUTION, URBAN_PERCENTAGE } from "@/constants/incomeDistribution";
 import { MARITAL_STATUS } from "@/constants/marriageDistribution";
-import { DISABILITY, ORPHANS } from "@/constants/others";
+import { ALCOHOLIC_RATE, DISABILITY, ORPHANS, SMOKING_RATE } from "@/constants/others";
 
 type MaritalDataType = {
     currentlyMarried: number,
@@ -39,7 +39,16 @@ export const matchedMaritalStatus = (status: OthersType, maritalStatus: MaritalD
 }
 
 export const finalResult: (gender: GenderType, ages: number[], height: number[], income: number[], others: OthersType) => number = (gender, ages, height, income, others) => {
-    const result = matchedAge(gender, ages) / 100 * matchedHeight(gender, height) / 100 * matchedIncome(income) / 100 * matchedMaritalStatus(others, MARITAL_STATUS) / 100 * (others.disability ? DISABILITY : 1) * (others.orphans ? ORPHANS : 1)
+    const antiAlcoholicRate = (100 - ALCOHOLIC_RATE[gender]) / 100
+    const nonSmokingRate = (100 - SMOKING_RATE[gender]) / 100
+    const result = matchedAge(gender, ages) / 100 *
+        matchedHeight(gender, height) / 100 *
+        matchedIncome(income) / 100 *
+        matchedMaritalStatus(others, MARITAL_STATUS) / 100 *
+        (others.disability ? DISABILITY : 1) *
+        (others.orphans ? ORPHANS : 1) *
+        (others.antiAlcoholic ? antiAlcoholicRate : 1) *
+        (others.nonSmoking ? nonSmokingRate : 1)
 
     return result
 }
