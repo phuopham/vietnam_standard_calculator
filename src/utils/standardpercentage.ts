@@ -38,17 +38,39 @@ export const matchedMaritalStatus = (status: OthersType, maritalStatus: MaritalD
     return total;
 }
 
+export const disabilityCalculation = (status: boolean | undefined) => {
+    if (status === undefined)
+        return 1
+    return status ? DISABILITY : (1 - DISABILITY)
+}
+
+export const orphansCalculation = (status: boolean | undefined) => {
+    if (status === undefined)
+        return 1
+    return status ? ORPHANS : (1 - ORPHANS)
+}
+
+export const alcoholicCalculation = (gender: GenderType, status: boolean | undefined) => {
+    if (status === undefined)
+        return 1
+    return status ? ALCOHOLIC_RATE[gender] / 100 : (100 - ALCOHOLIC_RATE[gender]) / 100
+}
+
+export const smokingCalculation = (gender: GenderType, status: boolean | undefined) => {
+    if (status === undefined)
+        return 1
+    return status ? SMOKING_RATE[gender] / 100 : (100 - SMOKING_RATE[gender]) / 100
+}
+
 export const finalResult: (gender: GenderType, ages: number[], height: number[], income: number[], others: OthersType) => number = (gender, ages, height, income, others) => {
-    const antiAlcoholicRate = (100 - ALCOHOLIC_RATE[gender]) / 100
-    const nonSmokingRate = (100 - SMOKING_RATE[gender]) / 100
     const result = matchedAge(gender, ages) / 100 *
         matchedHeight(gender, height) / 100 *
         matchedIncome(income) / 100 *
         matchedMaritalStatus(others, MARITAL_STATUS) / 100 *
-        (others.disability ? DISABILITY : 1) *
-        (others.orphans ? ORPHANS : 1) *
-        (others.antiAlcoholic ? antiAlcoholicRate : 1) *
-        (others.nonSmoking ? nonSmokingRate : 1)
+        disabilityCalculation(others.disability) *
+        orphansCalculation(others.orphans) *
+        alcoholicCalculation(gender, others.alcoholic) *
+        smokingCalculation(gender, others.smoking)
 
     return result
 }

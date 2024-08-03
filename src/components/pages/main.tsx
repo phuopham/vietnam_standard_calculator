@@ -7,6 +7,7 @@ import { GenderForm } from '../gender_form'
 import { OtherForm } from '../others_form'
 import { finalResult } from '@/utils/standardpercentage'
 import { Result } from '../result'
+import { Other2Form } from '../other2_form'
 
 export type GenderType = "male" | "female"
 export type OthersType = {
@@ -17,8 +18,8 @@ export type OthersType = {
     separated: boolean,
     disability?: boolean,
     orphans?: boolean,
-    antiAlcoholic?: boolean
-    nonSmoking?: boolean
+    alcoholic?: boolean
+    smoking?: boolean
 }
 
 export const MainPage = () => {
@@ -26,7 +27,7 @@ export const MainPage = () => {
     const [gender, setGender] = useState<GenderType>("male")
     const [height, setHeight] = useState<number[]>([135, 210])
     const [income, setIncome] = useState<number[]>([0, 50])
-    const [others, setOthers] = useState<OthersType>({ currentlyMarried: false, single: true, widowed: false, divorced: false, separated: false, disability: false, orphans: false })
+    const [others, setOthers] = useState<OthersType>({ currentlyMarried: false, single: true, widowed: false, divorced: false, separated: false })
     const percentage = finalResult(gender, ages, height, income, others)
     return (
         <>
@@ -38,10 +39,12 @@ export const MainPage = () => {
                     <HeightForm gender={gender} height={height} onValueChange={(val) => setHeight(val)} />
                     <IncomeForm income={income} onValueChange={(val) => setIncome(val)} />
                     <OtherForm data={others} onValueChange={(val) => setOthers(val)} />
+                    <Other2Form data={others} onValueChange={(val) => setOthers(val)} />
                 </div>
                 <Result percentage={percentage} gender={gender} />
             </div>
             <p className=' text-end text-sm font-light italic text-slate-600'>*Disclaimer: Các thông tin này không chính xác tuyệt đối. Bạn nên cân nhắc kĩ khi sử dụng những thông tin trên. <Link className='underline' to='/data'>(xem thêm)</Link></p>
+            <p className=' text-end text-sm font-light italic text-slate-600'>** Có uống rượu, bia trong 30 ngày gần đây. <Link className='underline' to='/data'>(xem thêm)</Link></p>
         </>
     )
 }
