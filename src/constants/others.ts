@@ -52,3 +52,6 @@ export const ALCOHOLIC_RATE = {
     male: 64,
     female: 10,
 }
+
+// dân số các dân tộc - 54 dân tộc:
+// https://vi.wikipedia.org/wiki/C%C3%A1c_d%C3%A2n_t%E1%BB%99c_t%E1%BA%A1i_Vi%E1%BB%87t_Nam#D%C3%A2n_s%E1%BB%91_c%C3%A1c_d%C3%A2n_t%E1%BB%99c_Vi%E1%BB%87t_Nam_hi%E1%BB%87n_nay

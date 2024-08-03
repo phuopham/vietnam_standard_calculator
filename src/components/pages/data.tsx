@@ -48,7 +48,8 @@ export const DataPage = () => {
                 </li>
                 <li>2015 GATS of Vietnam gives the overall smoking incidence at 22.5% with 45.3% males smoking and 1.1% females smoking - https://timonitor.seatca.org/vietnam/</li>
                 <li>2021, up to 64% of men and 10% of women have had alcohol in the past 30 days - https://en.vietnamplus.vn/alcohol-consumption-increasing-at-alarming-rate-post232387.vnp</li>
-                <li>// 2015: Nearly three-quarters of males (77%) and one-quarter of females (23%) were current alcohol drinkers - https://www.iza.org/publications/dp/14824</li>
+                <li>2015: Nearly three-quarters of males (77%) and one-quarter of females (23%) were current alcohol drinkers - https://www.iza.org/publications/dp/14824</li>
+                <li>(Reserve)ân số các dân tộc - 54 dân tộc: https://vi.wikipedia.org/wiki/C%C3%A1c_d%C3%A2n_t%E1%BB%99c_t%E1%BA%A1i_Vi%E1%BB%87t_Nam#D%C3%A2n_s%E1%BB%91_c%C3%A1c_d%C3%A2n_t%E1%BB%99c_Vi%E1%BB%87t_Nam_hi%E1%BB%87n_nay</li>
             </ul>
         </>)
 }

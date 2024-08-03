@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from '@tanstack/react-router'
 import { AgeForm } from "../age_form"
 import { HeightForm } from "../height_form"
 import { IncomeForm } from "../income_form"
@@ -31,7 +30,7 @@ export const MainPage = () => {
     const percentage = finalResult(gender, ages, height, income, others)
     return (
         <>
-            <div className=" md:grid md:grid-cols-3">
+            <div className=" md:grid lg:grid-cols-3 md:grid-cols-2">
                 <div className=' p-3 space-y-5 rounded-xl border '>
                     {/* main content */}
                     <GenderForm gender={gender} setGender={(val: GenderType) => setGender(val)} />
@@ -42,9 +41,8 @@ export const MainPage = () => {
                     <Other2Form data={others} onValueChange={(val) => setOthers(val)} />
                 </div>
                 <Result percentage={percentage} gender={gender} />
+
             </div>
-            <p className=' text-end text-sm font-light italic text-slate-600'>*Disclaimer: Các thông tin này không chính xác tuyệt đối. Bạn nên cân nhắc kĩ khi sử dụng những thông tin trên. <Link className='underline' to='/data'>(xem thêm)</Link></p>
-            <p className=' text-end text-sm font-light italic text-slate-600'>** Có uống rượu, bia trong 30 ngày gần đây. <Link className='underline' to='/data'>(xem thêm)</Link></p>
         </>
     )
 }
